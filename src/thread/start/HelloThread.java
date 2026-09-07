@@ -1,6 +1,6 @@
-package thread;
+package thread.start;
 
-public class HelloRunnable implements Runnable {
+public class HelloThread extends Thread {
 
     @Override
     public void run() {
