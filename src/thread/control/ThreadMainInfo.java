@@ -31,12 +31,12 @@ public class ThreadMainInfo {
         log("myThread.getThreadGroup() = " + myThread.getThreadGroup());
         log("myThread.getState() = " + myThread.getState());
         /*
-        21:50:17.012 [     main] mainThread = Thread[#22,myThread,5,main]
-        21:50:17.012 [     main] mainThread.threadId() = 22
-        21:50:17.012 [     main] mainThread.getName() = myThread
-        21:50:17.013 [     main] mainThread.getPriority() = 5
-        21:50:17.014 [     main] mainThread.getThreadGroup() = java.lang.ThreadGroup[name=main,maxpri=10]
-        21:50:17.014 [     main] mainThread.getState() = NEW
+        21:50:17.012 [     main] myThread = Thread[#22,myThread,5,main]
+        21:50:17.012 [     main] myThread.threadId() = 22
+        21:50:17.012 [     main] myThread.getName() = myThread
+        21:50:17.013 [     main] myThread.getPriority() = 5
+        21:50:17.014 [     main] myThread.getThreadGroup() = java.lang.ThreadGroup[name=main,maxpri=10]
+        21:50:17.014 [     main] myThread.getState() = NEW
         */
     }
 }
