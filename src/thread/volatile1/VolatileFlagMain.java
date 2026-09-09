@@ -17,17 +17,18 @@ public class VolatileFlagMain {
         log("runFlag 확인 = " + task.runFlag);
         log("main 종료");
         /*
-        15:11:32.053 [     main] runFlag 확인 = true
-        15:11:32.061 [     work] task 시작
-        15:11:33.065 [     main] runFlag 변경 시도
-        15:11:33.066 [     main] runFlag 확인 = false
-        15:11:33.066 [     main] main 종료
+        15:38:11.180 [     main] runFlag 확인 = true
+        15:38:11.188 [     work] task 시작
+        15:38:12.189 [     main] runFlag 변경 시도
+        15:38:12.190 [     work] task 종료
+        15:38:12.190 [     main] runFlag 확인 = false
+        15:38:12.191 [     main] main 종료
         */
     }
 
     static class MyTask implements Runnable {
 
-        boolean runFlag = true;
+        volatile boolean runFlag = true;
 
         @Override
         public void run() {
