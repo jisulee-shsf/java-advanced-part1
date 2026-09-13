@@ -37,6 +37,6 @@ public class IncrementThreadMain {
         }
 
         int result = incrementInteger.get();
-        System.out.println(incrementInteger.getClass().getSimpleName() + " result = " + result);
+        System.out.println(incrementInteger.getClass().getSimpleName() + " = " + result);
     }
 }
