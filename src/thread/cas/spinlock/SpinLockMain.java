@@ -7,7 +7,8 @@ public class SpinLockMain {
     private static final int THREAD_COUNT = 2;
 
     public static void main(String[] args) {
-        SpinLockBad spinLock = new SpinLockBad();
+//        SpinLockBad spinLock = new SpinLockBad();
+        SpinLock spinLock = new SpinLock();
 
         Runnable runnable = new Runnable() {
             @Override
@@ -15,6 +16,7 @@ public class SpinLockMain {
                 spinLock.lock();
                 try {
                     log("비즈니스 로직 실행"); // critical section
+//                    sleep(1);
                 } finally {
                     spinLock.unlock();
                 }
@@ -26,14 +28,20 @@ public class SpinLockMain {
             thread.start();
         }
         /*
-        14:17:16.202 [ thread-1] 락 획득 시도
-        14:17:16.202 [ thread-2] 락 획득 시도
-        14:17:17.213 [ thread-1] 락 획득 완료
-        14:17:17.213 [ thread-2] 락 획득 완료
-        14:17:17.213 [ thread-1] 비즈니스 로직 실행
-        14:17:17.213 [ thread-2] 비즈니스 로직 실행
-        14:17:17.214 [ thread-1] 락 반납 완료
-        14:17:17.214 [ thread-2] 락 반납 완료
+        15:31:12.587 [ thread-1] 락 획득 시도
+        15:31:12.587 [ thread-2] 락 획득 시도
+
+        15:31:12.595 [ thread-1] 락 획득 완료
+        15:31:12.596 [ thread-2] 락 획득 실패 - 스핀 대기
+
+        15:31:12.596 [ thread-1] 비즈니스 로직 실행
+        15:31:12.596 [ thread-2] 락 획득 실패 - 스핀 대기
+
+        15:31:12.596 [ thread-1] 락 반납 완료
+        15:31:12.597 [ thread-2] 락 획득 완료
+
+        15:31:12.597 [ thread-2] 비즈니스 로직 실행
+        15:31:12.598 [ thread-2] 락 반납 완료
         */
     }
 }
