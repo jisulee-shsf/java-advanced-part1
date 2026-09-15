@@ -1,0 +1,47 @@
+package thread.collection.list;
+
+import static util.MyLogger.log;
+
+public class SimpleListMainV2 {
+
+    public static void main(String[] args) throws InterruptedException {
+        test(new BasicList());
+        /*
+        16:51:27.086 [     main] BasicList
+        16:51:27.199 [ thread-1] thread-1 = list.add(A)
+        16:51:27.199 [ thread-2] thread-2 = list.add(B)
+        16:51:27.200 [     main] [B, null] size = 2 capacity = 5
+        */
+    }
+
+    private static void test(SimpleList list) throws InterruptedException {
+        log(list.getClass().getSimpleName());
+
+        Runnable runnable1 = new Runnable() {
+            @Override
+            public void run() {
+                list.add("A");
+                log("thread-1 = list.add(A)");
+            }
+        };
+
+        Runnable runnable2 = new Runnable() {
+            @Override
+            public void run() {
+                list.add("B");
+                log("thread-2 = list.add(B)");
+            }
+        };
+
+        Thread thread1 = new Thread(runnable1, "thread-1");
+        Thread thread2 = new Thread(runnable2, "thread-2");
+
+        thread1.start();
+        thread2.start();
+
+        thread1.join();
+        thread2.join();
+
+        log(list);
+    }
+}
