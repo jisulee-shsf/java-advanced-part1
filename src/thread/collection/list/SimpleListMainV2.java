@@ -5,12 +5,13 @@ import static util.MyLogger.log;
 public class SimpleListMainV2 {
 
     public static void main(String[] args) throws InterruptedException {
-        test(new BasicList());
+//        test(new BasicList());
+        test(new SyncList());
         /*
-        16:51:27.086 [     main] BasicList
-        16:51:27.199 [ thread-1] thread-1 = list.add(A)
-        16:51:27.199 [ thread-2] thread-2 = list.add(B)
-        16:51:27.200 [     main] [B, null] size = 2 capacity = 5
+        16:57:06.914 [     main] SyncList
+        16:57:07.029 [ thread-1] thread-1 = list.add(A)
+        16:57:07.133 [ thread-2] thread-2 = list.add(B)
+        16:57:07.134 [     main] [A, B] size = 2 capacity = 5
         */
     }
 
