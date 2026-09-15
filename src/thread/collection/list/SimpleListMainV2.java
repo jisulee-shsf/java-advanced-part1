@@ -6,12 +6,13 @@ public class SimpleListMainV2 {
 
     public static void main(String[] args) throws InterruptedException {
 //        test(new BasicList());
-        test(new SyncList());
+//        test(new SyncList());
+        test(new SyncProxyList(new BasicList()));
         /*
-        16:57:06.914 [     main] SyncList
-        16:57:07.029 [ thread-1] thread-1 = list.add(A)
-        16:57:07.133 [ thread-2] thread-2 = list.add(B)
-        16:57:07.134 [     main] [A, B] size = 2 capacity = 5
+        17:16:21.394 [     main] SyncProxyList
+        17:16:21.507 [ thread-1] thread-1 = list.add(A)
+        17:16:21.610 [ thread-2] thread-2 = list.add(B)
+        17:16:21.611 [     main] [A, B] size = 2 capacity = 5 by SyncProxyList
         */
     }
 
